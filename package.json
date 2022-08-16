@@ -1,5 +1,5 @@
 {
-  "name": "node-db1-project",
+  "name": "db1-project",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,12 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BloomInstituteOfTechnology/node-db1-project.git"
-  }
+  },
+  "description": "## Introduction",
+  "bugs": {
+    "url": "https://github.com/BloomInstituteOfTechnology/node-db1-project/issues"
+  },
+  "homepage": "https://github.com/BloomInstituteOfTechnology/node-db1-project#readme",
+  "author": "",
+  "license": "ISC"
 }
