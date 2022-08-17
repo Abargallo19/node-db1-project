@@ -1,9 +1,22 @@
+const db = require('../../data/db-config');
+
+
+
 const getAll = () => {
-  // DO YOUR MAGIC
+  // return db('accounts');
 }
+// async function getAll() {
+//   return db('accounts');
+// }
 
 const getById = id => {
-  // DO YOUR MAGIC
+
+//  try {
+//    const accId = db('accounts'). 
+   
+//  } catch (error) {
+   
+//  }
 }
 
 const create = account => {
