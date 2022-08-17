@@ -7,25 +7,28 @@ function getAll() {
 
 
 const getById = id => {
-return db('accounts').where({id});
-
-
+  return db('accounts').where({ id });
 }
 
-// function getById(id){
+// const create = account => {
+// return db('accounts').insert(account)
+// }
 
-// };
-
-const create = account => {
-  // DO YOUR MAGIC
+async function create(account) {
+  const [id] = await db('accounts').insert(account)
+  return await getById(id)
 }
 
 const updateById = (id, account) => {
-  // DO YOUR MAGIC
+  db('accounts').where('id', id).update(account)
 }
 
-const deleteById = id => {
-  // DO YOUR MAGIC
+async function deleteById(id) {
+
+  const result = await getById(id);
+  await db('accounts').delete().where('id', id);
+return result;
+
 }
 
 module.exports = {
