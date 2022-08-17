@@ -3,7 +3,7 @@ const db = require('../../data/db-config');
 
 
 const getAll = () => {
-  // return db('accounts');
+  return db('accounts');
 }
 // async function getAll() {
 //   return db('accounts');
