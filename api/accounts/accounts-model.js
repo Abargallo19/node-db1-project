@@ -1,23 +1,20 @@
 const db = require('../../data/db-config');
 
 
-
-const getAll = () => {
+function getAll() {
   return db('accounts');
 }
-// async function getAll() {
-//   return db('accounts');
-// }
+
 
 const getById = id => {
+return db('accounts').where({id});
 
-//  try {
-//    const accId = db('accounts'). 
-   
-//  } catch (error) {
-   
-//  }
+
 }
+
+// function getById(id){
+
+// };
 
 const create = account => {
   // DO YOUR MAGIC

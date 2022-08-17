@@ -4,7 +4,6 @@ const router = require('express').Router()
 
 router.get('/', async (req, res, next) => {
   try {
-    // throw new Error('BLAH howdy')
     const allAccounts = await Accounts.getAll()
     return res.status(200).json(allAccounts)
   } catch (err) {
