@@ -1,27 +1,34 @@
 
-const AccountMod = require('./accounts-model');
+const accountMod = require('./accounts-model');
 
-exports.checkAccountPayload = (req, res, next) => {
+function checkAccountPayload(req, res, next) {
   // DO YOUR MAGIC
   // Note: you can either write "manual" validation logic
   // or use the Yup library (not currently installed)
-}
-
-exports.checkAccountNameUnique = (req, res, next) => {
-  // DO YOUR MAGIC
-}
-
-exports.checkAccountId = (req, res, next) => {
-  const fetchedAccount =  Accounts.getById(req.params.id)
- 
-  if(!fetchedAccount){
-    res.status(404).json({message: 'sorry this ID doesnt exist'})
-  } else {
-    return res.status(200).json(fetchedAccount)
+  if (!req.body.name || ! req.body.budget) {
+    res.status(400).json({message: "name and budget are required" })
+  } else if(req.body.name.trim() < 3 || req.body.name.trim() > 10) {
+res.status(400).json({message: "name of account must be between 3 and 100"})
+  }else {
+    res.status(200)
   }
 
- next()
-  
+}
+
+function checkAccountNameUnique(req, res, next) {
+  // DO YOUR MAGIC
+  // accountMod.getById(req.newAccount.name)
+}
+
+function checkAccountId(req, res, next) {
+  const fetchedAccount = accountMod.getById(req.params.id)
+  if (!fetchedAccount) return res.status(404).json({ message: 'sorry this ID doesnt exist' })
+  next()
+
+
+
 
   // DO YOUR MAGIC
 }
+
+module.exports = checkAccountId, checkAccountNameUnique, checkAccountPayload
